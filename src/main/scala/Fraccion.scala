@@ -19,7 +19,18 @@ class Fraccion(num:Int,denom:Int) {
     else mcd(b, a % b)
   }
 
+  override def equals(obj: scala.Any): Boolean = {
+    obj match {
+      case otra:Fraccion => numerador == otra.numerador && denominador == otra.denominador
+      case _ => false
+    }
+  }
+
   override def toString: String = s"${numerador}/${denominador}"
+}
+
+object Fraccion{
+  def apply(num: Int, denom: Int): Fraccion = new Fraccion(num, denom)
 }
 
 
